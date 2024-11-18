@@ -1,1 +1,103 @@
 @charset 'utf-8';
+
+.bg {
+  position: absolute;
+  z-index: -1;
+}
+
+#header {
+  max-width: 1720px;
+  height: 12rem;
+  margin: 0 auto;
+  width: 95%;
+  /*   background: #5f5; */
+
+  display: flex;
+  align-items: center;
+}
+
+.logo a {
+  display: block;
+  width: 150px;
+  height: 100px;
+  background: url(../img/logo-up.png) no-repeat 0 0 / cover;
+}
+
+/* 헤더 탭 만들기 */
+.hea-tab a {
+  display: block;
+  width: 70px;
+  height: 70px;
+  border-radius: 100%;
+  background: #f5f;
+
+  position: fixed;
+  top: 2.5%;
+  right: 5%;
+}
+
+/* 비주얼 화면2 가리기 */
+/* .visual .slide1 {
+  opacity: 0;
+} */
+
+.visual {
+  min-width: 1720px;
+  width: 95%;
+  height: 834px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.visual .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.visual .slide img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 무비 클립 섹션  */
+.movie-clip {
+  margin-top: 25rem;
+}
+
+.inner {
+  width: 172rem;
+  width: 91.9%;
+  margin: 0 auto;
+}
+
+.sec-title {
+  text-align: center;
+  color: #000;
+  font-size: 7.2rem;
+  font-family: "Inside Out";
+}
+
+.movie-clip .clip {
+  display: flex;
+  margin-top: 15rem;
+}
+
+.clip .video {
+  display: block;
+  width: 84.8rem;
+  height: 64.2rem;
+  background: #ff5;
+  border: 1px solid #000;
+}
+.clip .clip-text {
+  /*   position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; */
+}

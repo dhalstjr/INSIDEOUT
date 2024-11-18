@@ -6,9 +6,142 @@
     <title>InsideOut</title>
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/common.css" />
-    <link rel="stylesheet" href="./js/script.js" />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="./js/script.js" defer></script>
   </head>
   <body>
-    <img src="./img/INSIDEOUT background.png" alt="" />
+    <a href="#container" class="skip hidden"></a>
+
+    <div class="bg">
+      <img src="./img/INSIDEOUT background.png" alt="" />
+    </div>
+
+    <header id="header">
+      <h1 class="logo">
+        <a href="#"><i class="hidden">INSIDEOUT</i></a>
+      </h1>
+
+      <div class="hea-tab">
+        <a href="#"><i class="hidden">tab</i></a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="visual">
+        <div class="slide slide1">
+          <figure>
+            <img src="./img/visual1-up.png" alt="인사이드 아웃1 이미지" />
+          </figure>
+          <!--           <div class="text">
+            <h2>Lorem ipsum dolor sit amet,</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
+              quibusdam.
+            </p>
+          </div> -->
+        </div>
+
+        <!-- 이미지 2개 돌려쓰기를 위한 HTML -->
+        <div class="slide slide2">
+          <figure>
+            <img src="./img/visual2-up.png" alt="인사이드 아웃2 이미지" />
+          </figure>
+          <!--          <div class="text">
+            <h2>Lorem ipsum dolor sit amet,</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure,
+              quibusdam.
+            </p>
+          </div> -->
+        </div>
+      </section>
+      <!-- end - visual -->
+
+      <section class="movie-clip">
+        <div class="inner">
+          <h3 class="sec-title">Movie-clip</h3>
+          <div class="clip">
+            <div class="clip1 video"></div>
+            <div class="clip1 clip-text">
+              <h2>구색찬란 감정 소개 영상</h2>
+              <p>감정들을 삼킨 듯한 성우들의 다채로운 모습</p>
+            </div>
+          </div>
+
+          <div class="clip">
+            <div class="clip2 video"></div>
+            <div class="clip2 clip-text">
+              <h2>구색찬란 감정 소개 영상</h2>
+              <p>감정들을 삼킨 듯한 성우들의 다채로운 모습</p>
+            </div>
+          </div>
+          <div class="clip">
+            <div class="clip3 video"></div>
+            <div class="clip3 clip-text">
+              <h2>구색찬란 감정 소개 영상</h2>
+              <p>감정들을 삼킨 듯한 성우들의 다채로운 모습</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="character">
+        <div class="inner">
+          <div class="cha-title">
+            <h3></h3>
+            <p></p>
+          </div>
+        </div>
+
+        <div class="tab-wrap">
+          <div class="tab-menu">
+            <a href="#" class="tab-all">ALL</a>
+            <a href="#" class="tab-inside1">INSIDEOUT1</a>
+            <a href="#" class="tab-inside2">INSIDEOUT2</a>
+          </div>
+
+          <div class="tab-con">
+            <div class="cha-slider-wrap">
+              <div class="cha-slider swiper testSlider1">
+                <ul class="cha-list swiper-wrapper">
+                  <li class="swiper-slide">
+                    <a href="#">
+                      <figure><img src="" alt="기쁨" /></figure>
+                      <dl>
+                        <dt>기쁨</dt>
+                        <dd>Joy</dd>
+                      </dl>
+                      <!-- div 설명하는 곳 추가해야함. -->
+                    </a>
+                  </li>
+                  <!-- li슬라이드 추가 -->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="movie-scene"></section>
+      <section class="review"></section>
+      <section class="still-cut"></section>
+      <section class="series"></section>
+    </main>
   </body>
 </html>
