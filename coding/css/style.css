@@ -32,6 +32,7 @@
   background: #f5f;
 
   position: fixed;
+  z-index: 100;
   top: 2.5%;
   right: 5%;
 }
@@ -42,7 +43,7 @@
 } */
 
 .visual {
-  min-width: 1720px;
+  /*   min-width: 1720px; */
   width: 95%;
   height: 834px;
   margin: 0 auto;
@@ -84,20 +85,480 @@
 
 .movie-clip .clip {
   display: flex;
+  align-items: center;
+  gap: 10rem;
   margin-top: 15rem;
 }
 
+.movie-clip .clip-flex {
+  flex-direction: row-reverse;
+}
+
 .clip .video {
-  display: block;
-  width: 84.8rem;
+  position: relative;
+  width: 86rem;
+  /*   width: 100%; */
+  /*   max-width: 84.8rem; */
   height: 64.2rem;
-  background: #ff5;
-  border: 1px solid #000;
+
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+}
+
+.video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  /*   width: 84.8rem; */
+  height: 100%;
+
+  object-fit: contain;
 }
 .clip .clip-text {
-  /*   position: relative;
+  text-align: center;
+  font-family: "Inter";
+}
+
+.clip-text h2 {
+  font-weight: 600;
+  font-size: 3.2rem;
+}
+.clip-text p {
+  margin-top: 16px;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* 캐릭터 섹션 시작 */
+.character {
+  margin-top: 25rem;
+}
+
+.character .cha-title h3 {
+  text-align: center;
+  color: #000;
+  font-size: 7.2rem;
+  font-family: "Inside Out";
+}
+.character .cha-title p {
+  text-align: center;
+  margin-top: 3.4rem;
+  font-weight: 400;
+  font-size: 2rem;
+  font-family: "Inter";
+}
+
+.character .tab-wrap {
+  margin-top: 5rem;
+}
+
+.tab-wrap .tab-menu {
+  /*   background: #ff5; */
+  display: flex;
+  /*  align-items: center; */
+  justify-content: center;
+  gap: 6rem;
+}
+
+.tab-wrap .tab-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20rem;
+  height: 8rem;
+  border-radius: 7rem;
+  background: #fff;
+  border: 2px solid #000;
+
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 2rem;
+
+  transition: 0.4s;
+}
+
+.tab-wrap .tab-menu a:hover {
+  background: #1a0b50;
+  color: #fff;
+  border: none;
+
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* 탭메뉴 활성화 표시 */
+.tab-menu a.on {
+  background: #1a0b50;
+  border: none;
+  color: #fff;
+}
+
+.tab-con {
+  margin-top: 10rem;
+}
+
+.cha-slider-wrap {
+  /*   border: 1px solid #000; */
+  position: relative;
+}
+
+.cha-slider {
+  /*   background: #ff5; */
+  overflow: hidden;
+  padding-bottom: 8rem;
+}
+
+.cha-slider-wrap .btn {
+  cursor: pointer;
+  position: absolute;
   top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 60px;
+  background: #000;
+  color: #fff;
+  text-transform: uppercase;
+  z-index: 10;
+}
+
+.cha-slider-wrap .btn.btn-prev {
+  left: -80px;
+}
+.cha-slider-wrap .btn.btn-next {
+  right: -80px;
+}
+
+.cha-list li {
+  width: 410px;
+  height: 480px;
+  /*   border: 1px solid #000; */
+  /*   border-radius: 50%; */
+  position: relative;
+  /*  background: #5f5; */
+}
+
+.cha-list figure {
+  height: 340px;
+  /*   background: #fff; */
+}
+
+.cha-list figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.cha-list dl {
+  padding: 40px;
+  /*   background: #f55; */
+  font-family: "Inter";
+}
+
+.cha-list dl dt {
+  font-weight: 700;
+  font-size: 24px;
+  color: #000;
+  text-align: center;
+}
+
+.cha-list dl dd {
+  font-weight: 400;
+  font-size: 18px;
+  color: #000;
+  text-align: center;
+
+  margin-top: 16px;
+}
+
+.cha-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  padding: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+
+  /* 뒤집는 효과 */
+  transform: /* perspective(1500px) */ rotateY(180deg);
+  transform-origin: 50% 0;
+  transition: all ease-out 0.6s;
+}
+
+.cha-list li:hover .cha-info {
+  opacity: 1;
+  /*   background: #ff5; */
+  transform: /* perspective(1500px) */ rotateY(0deg);
+}
+
+.cha-info h3 {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 2.8rem;
+}
+.cha-info strong {
+  font-family: "Poppins";
+  font-weight: 600;
+  font-size: 2rem;
+  margin-top: 0.8rem;
+}
+.cha-info p {
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-top: 1.4rem;
+  width: 40rem;
+  text-align: center;
+  word-break: keep-all;
+}
+
+/* 명대사 섹션 */
+
+.movie-famousline {
+  /*   margin: 0 auto; */
+  margin-top: 10rem;
+  height: 150vh;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0);
+
+  transition: background 0.5s ease;
+}
+
+.quote-con {
+  position: relative;
+  height: 100rem;
+
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.quote-line {
+  margin-top: 16rem;
+  font-weight: 700;
+  font-size: 5rem;
+  color: #ffffff;
+  transform: translateY(50px);
+  opacity: 0;
+}
+
+#line1,
+#line2 {
+  font-family: "Poppins";
+}
+
+#line3,
+#line4 {
+  font-family: "Inter";
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, #000 85%, #00000095 100%);
+  z-index: -1;
+}
+
+.tear {
+  position: absolute;
+  top: -100px;
   left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center; */
+  width: 15px;
+  height: 20px;
+  background: rgba(74, 144, 226, 0.7);
+  border-radius: 50%;
+  animation: drop 2s infinite;
+  transform: translateX(-50%);
+
+  transition: 0.4s;
+
+  z-index: 1;
+}
+
+/* @keyframes drop {
+  0% {
+    top: -100px;
+    opacity: 1;
+  }
+
+  100% {
+    top: 300px;
+    opacity: 0;
+  }
+} */
+
+/* 리뷰 섹션 시작 */
+
+.review {
+  margin-top: 25rem;
+}
+
+.review .re-title h3 {
+  text-align: center;
+  color: #000;
+  font-size: 7.2rem;
+  font-family: "Inside Out";
+}
+
+.re-con {
+  display: flex;
+  margin-top: 10rem;
+  /*   justify-content: space-between; */
+}
+
+.re-img {
+  width: 70.3rem;
+  height: 105.7rem;
+  border: 1px solid #1a0b50;
+  box-shadow: 0px 4px 20px #00000025;
+  border-radius: 80px;
+}
+
+.re-img figure {
+  width: 100%;
+  height: 100%;
+}
+.re-img figure img {
+  width: 100%;
+  height: 100%;
+}
+
+.comment-con {
+  width: 100rem;
+}
+.comment-con .re-comment {
+  font-family: "Pretendard";
+  margin-top: 12rem;
+}
+.comment-con .re-comment .comment-name {
+  font-weight: 700;
+  font-size: 3.2rem;
+  margin-left: 16px;
+}
+
+.comment-con .re-comment.one {
+  transform: translateX(120px);
+  color: #ffd700;
+}
+.comment-con .re-comment.two {
+  color: #1c56d2;
+  transform: translateX(380px);
+}
+.comment-con .re-comment.three {
+  color: #a6190f;
+  transform: translateX(120px);
+}
+.comment-con .re-comment.four {
+  color: #3d992c;
+  transform: translateX(380px);
+}
+
+.comment-con .re-comment .comment-writing {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  width: 58.1rem;
+  height: 7.4rem;
+  border-radius: 30px;
+  color: #000;
+  box-shadow: 0px 2px 6px #00000025;
+}
+.comment-con .re-comment .comment-writing p {
+  font-weight: 500;
+  font-size: 2rem;
+}
+
+/* 스틸 컷 섹션 */
+.still-cut {
+  margin-top: 25rem;
+}
+
+.still-cut .still-title h3 {
+  text-align: center;
+  color: #000;
+  font-size: 7.2rem;
+  font-family: "Inside Out";
+}
+
+.cut-con {
+  margin: 0 auto;
+  margin-top: 10rem;
+  /*   display: flex; */
+  overflow: hidden;
+}
+
+.cut-con .cut-list-one,
+.cut-con .cut-list-two {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
+.cut-con .cut-list-one {
+  animation: marquee 105.008s linear 1s infinite normal none running;
+}
+.cut-con .cut-list-two {
+  margin-top: 2rem;
+
+  animation: marquee-reverse 105.008s linear 1s infinite normal none running;
+}
+.cut-con .cut-list-one li {
+  flex-shrink: 0; /* 이미지 크기를 고정 */
+  width: 41.1rem;
+  height: 28.4rem;
+}
+
+.cut-con .cut-list-one li img {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* 시리즈 섹션 시작 */
+
+.series {
+  margin-top: 25rem;
+}
+
+.series .ser-title h3 {
+  text-align: center;
+  color: #000;
+  font-size: 7.2rem;
+  font-family: "Inside Out";
 }
