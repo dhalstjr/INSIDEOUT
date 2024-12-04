@@ -23,11 +23,11 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="./js/jquery-3.7.0.min.js"></script>
     <!--     <script src="./js/jquery-3.3.1.min.js"></script> -->
     <script src="./js/swiper.min.js"></script>
-    <script src="./js/script.js" defer></script>
-  </head>
+    <script src="./js/script.js" defer></script></head
+  ><!--  -->
   <body>
     <a href="#container" class="skip hidden"></a>
 
@@ -42,6 +42,11 @@
 
       <div class="hea-tab">
         <a href="#"><i class="hidden">tab</i></a>
+      </div>
+
+      <div class="nav-tab open">
+        <a href="" class="close-btn"></a>
+        <div class="nav-menu"></div>
       </div>
     </header>
 
@@ -425,44 +430,84 @@
           </ul>
         </div>
       </section>
+
       <section class="series">
         <div class="inner">
           <div class="ser-title">
             <h3>series</h3>
           </div>
 
-          <div class="ser-con">
-            <div class="ser-trailer main-one">
-              <div class="trailer-text">
-                <h4>insideout1</h4>
-                <strong>메인예고편!!</strong>
-                <p>
-                  모든 사람의 머릿속에 존재하는 감정 컨트롤 본부에서'기쁨'과
-                  '슬픔'이
-                </p>
-                <p>본부를 이탈하면서 라일리의 감정에 큰 변화가 생긴다.</p>
-                <p>
-                  라일리가 행복을 되찾기 위해 두 감정이 험난한 여정을 거쳐
-                  본부로 돌아와야 한다!
-                </p>
-              </div>
+          <!-- 영상 나올 때 딤처리 -->
+          <div class="dim"></div>
+
+          <!-- 비디오 나오는 곳 -->
+          <div class="video-wrap">
+            <div class="ser-video">
+              <iframe
+                src="https://www.youtube.com/embed/siMuXKu5aZY?si=0l_LW_os1ro4RWiM"
+                title="YouTube video player"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
             </div>
-            <div class="ser-trailer main-two">
-              <div class="trailer-text">
-                <h4>insideout1</h4>
-                <strong>메인예고편!!</strong>
-                <p>
-                  모든 사람의 머릿속에 존재하는 감정 컨트롤 본부에서'기쁨'과
-                  '슬픔'이
-                </p>
-                <p>본부를 이탈하면서 라일리의 감정에 큰 변화가 생긴다.</p>
-                <p>
-                  라일리가 행복을 되찾기 위해 두 감정이 험난한 여정을 거쳐
-                  본부로 돌아와야 한다!
-                </p>
-              </div>
-            </div>
+            <button class="btn-close" type="button">
+              <i class="hidden">닫기</i>
+            </button>
           </div>
+
+          <!--           <div class="video-wrap-two">
+            <ul class="video-list">
+              <li data-link="https://youtu.be/siMuXKu5aZY?si=X0Qn74ozId2ZHGcc">
+                <i class="hidden">인사이드아웃 1 메인 예고편</i>
+              </li>
+              <li data-link="https://youtu.be/EiCmnIaj4u8?si=C2PVrcKyDml_JLuh">
+                <i class="hidden">인사이드아웃 2 메인 예고편</i>
+              </li>
+            </ul>
+          </div> -->
+
+          <ul class="ser-con">
+            <!-- 예고편 1 -->
+            <li
+              data-link="https://www.youtube.com/embed/siMuXKu5aZY"
+              class="ser-trailer main-one"
+            >
+              <div class="trailer-text">
+                <h4>insideout1</h4>
+                <strong>메인예고편!!</strong>
+                <p>
+                  모든 사람의 머릿속에 존재하는 감정 컨트롤 본부에서'기쁨'과
+                  '슬픔'이
+                </p>
+                <p>본부를 이탈하면서 라일리의 감정에 큰 변화가 생긴다.</p>
+                <p>
+                  라일리가 행복을 되찾기 위해 두 감정이 험난한 여정을 거쳐
+                  본부로 돌아와야 한다!
+                </p>
+              </div>
+            </li>
+            <!-- 예고편 2 -->
+            <li
+              data-link="https://www.youtube.com/embed/EiCmnIaj4u8"
+              class="ser-trailer main-two"
+            >
+              <div class="trailer-text">
+                <h4>insideout2</h4>
+                <strong>메인예고편!!</strong>
+                <p>불안이 X 당황이 X 부럽이 X 따분이 등장</p>
+                <p>
+                  올여름, NEW 감정들과 함께하는 새로운 라일리 작전이 시작됩니다!
+                </p>
+                <p>인사이드아웃2 '새로운 라일리 작전' 함께할래?</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="endding">
+        <div class="end-con">
+          <div class="pixar"><i class="hidden">디즈니 픽사 이미지</i></div>
         </div>
       </section>
     </main>

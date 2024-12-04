@@ -147,4 +147,50 @@ $(function () {
     repeat: -1,
     ease: "power1.in",
   }); */
+
+  // 영상
+  const $body = $("body");
+  const $dim = $(".dim");
+  const $videoWrap = $(".video-wrap");
+  const $video = $videoWrap.find(".ser-video iframe");
+  $btnClose = $(".btn-close");
+  const $selectVideo = $(".ser-con > li");
+  const $headerTab = $(".hea-tab");
+
+  // 비디오 리스트를 클릭(선택) 했을 떄
+  $selectVideo.on("click", function () {
+    // 선택한 비디오 링크를 받아서 변수에 저장
+    let videoLink = $(this).data("link"); /* data-link */
+
+    videoLink += "?autoplay=1"; //videoLink =videoLink + '?autoplay=1'
+
+    console.log(videoLink);
+
+    // $video 의 src 값으로 비디오 링크를 세팅
+    $video.attr("src", videoLink);
+
+    // dim을 보이게
+    $dim.fadeIn();
+    // $videoWrap를 보이게
+    $videoWrap.addClass("active");
+    // hea-tab 안보이게
+    $headerTab.fadeOut();
+
+    // 선택한 놈의 인덱스를 구해서 변수에 저장 : videoIdx
+    const videoIdx = $(this).index();
+    console.log(videoIdx);
+  });
+
+  $btnClose.on("click", function () {
+    // dim을 안보이게
+    $dim.fadeOut();
+    $videoWrap.removeClass("active");
+
+    $headerTab.fadeIn(300);
+
+    //$video의 src값을 없애자 --> 동영상 삭제
+    setTimeout(function () {
+      $video.attr("src", "");
+    }, 300);
+  });
 });

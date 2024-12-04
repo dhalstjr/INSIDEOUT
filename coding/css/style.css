@@ -29,12 +29,48 @@
   width: 70px;
   height: 70px;
   border-radius: 100%;
-  background: #f5f;
+  background: #1a0b50 no-repeat 0 0;
 
   position: fixed;
   z-index: 100;
-  top: 2.5%;
-  right: 5%;
+  top: 3%;
+  right: 3%;
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.hea-tab a::before {
+  position: relative;
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+  content: "";
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(../img/hea-tab-icon.png);
+}
+
+.hea-tab a:hover {
+  animation: blink 0.6s ease forwards;
+}
+
+@keyframes blink {
+  0% {
+    background: #1a0b50;
+    box-shadow: 0 0 5px #1a0b50;
+  }
+  /*  50% {
+    background: #6f7fdc;
+    box-shadow: 0 0 15px #6f7fdc;
+  } */
+  100% {
+    background: #6f7fdc; /* 연한 상태 */
+    box-shadow: 0 0 10px #6f7fdc;
+  }
+}
+
+/* 헤더 탭에서 탭 메뉴 만들기 */
+.hea-tab a.active {
 }
 
 /* 비주얼 화면2 가리기 */
@@ -86,7 +122,7 @@
 .movie-clip .clip {
   display: flex;
   align-items: center;
-  gap: 10rem;
+  gap: 15rem;
   margin-top: 15rem;
 }
 
@@ -118,12 +154,12 @@
 }
 .clip .clip-text {
   text-align: center;
-  font-family: "Inter";
+  font-family: "Pretendard";
 }
 
 .clip-text h2 {
-  font-weight: 600;
-  font-size: 3.2rem;
+  font-weight: 700;
+  font-size: 3.6rem;
 }
 .clip-text p {
   margin-top: 16px;
@@ -253,17 +289,18 @@
 .cha-list dl {
   padding: 40px;
   /*   background: #f55; */
-  font-family: "Inter";
+  font-family: "Pretendard";
 }
 
 .cha-list dl dt {
   font-weight: 700;
-  font-size: 24px;
+  font-size: 28px;
   color: #000;
   text-align: center;
 }
 
 .cha-list dl dd {
+  font-family: "Poppins";
   font-weight: 400;
   font-size: 18px;
   color: #000;
@@ -303,18 +340,18 @@
 }
 
 .cha-info h3 {
-  font-family: "Inter";
+  font-family: "Pretendard";
   font-weight: 600;
   font-size: 2.8rem;
 }
 .cha-info strong {
   font-family: "Poppins";
-  font-weight: 600;
+  font-weight: 500;
   font-size: 2rem;
   margin-top: 0.8rem;
 }
 .cha-info p {
-  font-family: "Inter";
+  font-family: "Pretendard";
   font-weight: 400;
   font-size: 1.8rem;
   margin-top: 1.4rem;
@@ -418,6 +455,7 @@
 
 .re-con {
   display: flex;
+  margin: 0 auto;
   margin-top: 10rem;
   /*   justify-content: space-between; */
 }
@@ -514,12 +552,12 @@
 }
 
 .cut-con .cut-list-one {
-  animation: marquee 105.008s linear 1s infinite normal none running;
+  animation: marquee 400.008s linear 1s infinite normal none running;
 }
 .cut-con .cut-list-two {
   margin-top: 2rem;
 
-  animation: marquee-reverse 105.008s linear 1s infinite normal none running;
+  animation: marquee-reverse 400.008s linear 1s infinite normal none running;
 }
 .cut-con .cut-list-one li {
   flex-shrink: 0; /* 이미지 크기를 고정 */
@@ -561,4 +599,163 @@
   color: #000;
   font-size: 7.2rem;
   font-family: "Inside Out";
+}
+
+.ser-con {
+  display: flex;
+  margin-top: 10rem;
+}
+
+.ser-con .ser-trailer {
+  width: 100%;
+  height: 75rem;
+
+  border: 1px solid #000;
+  background: #ff5 no-repeat 0 0 / cover;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.ser-con .ser-trailer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.ser-con .trailer-text {
+  font-family: "Pretendard";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  z-index: 1;
+}
+
+.ser-con .ser-trailer.main-one .trailer-text {
+  left: 8%;
+}
+
+.ser-con .ser-trailer.main-two .trailer-text {
+  text-align: right;
+  right: 8%;
+}
+
+.ser-con .trailer-text h4 {
+  font-family: "Inside Out";
+  font-size: 7.2rem;
+  letter-spacing: 0.01em;
+}
+
+.ser-con .trailer-text strong {
+  display: block;
+  margin-top: 2.4rem;
+  font-weight: 600;
+  font-size: 3rem;
+  letter-spacing: 0.01em;
+}
+
+.ser-con .trailer-text p:first-of-type {
+  margin-top: 1.6rem;
+}
+.ser-con .trailer-text p {
+  margin-top: 0.5rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+}
+
+.ser-con .ser-trailer.main-one {
+  background-image: url(../img/ser-inside1.png);
+}
+.ser-con .ser-trailer.main-two {
+  background-image: url(../img/ser-inside2.png);
+}
+
+/* 영상을 위한 */
+.dim {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+
+  z-index: 9;
+  display: none;
+}
+
+.video-wrap {
+  position: fixed;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 102.4rem;
+  aspect-ratio: 16/9;
+
+  border: 10px solid #000;
+
+  /* jQuery : addClass/removeClass 사용 */
+
+  opacity: 0;
+  transition: 1.3s;
+
+  pointer-events: none;
+  user-select: none;
+
+  z-index: 10;
+}
+
+.video-wrap.active {
+  top: 50%;
+  opacity: 1;
+
+  /* 닫기 버튼이 안눌렸을 때 조치사항 */
+  pointer-events: auto;
+  user-select: auto;
+}
+
+.video-wrap .ser-video,
+.video-wrap .ser-video iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-wrap .btn-close {
+  position: absolute;
+  top: 0%;
+  right: -20%;
+  transform: translate(-50%, -50%);
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+/* endding 섹션 */
+.endding {
+  margin-top: 30rem;
+}
+
+.end-con {
+  height: 40rem;
+  background: #1a0b50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pixar {
+  width: 58.8rem;
+  height: 10.4rem;
+  background: url(../img/endding-img.png) no-repeat 0 0;
 }
