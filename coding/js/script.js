@@ -30,6 +30,24 @@ $(function () {
     "<"
   );
 
+  // 클립 섹션 효과
+  document.querySelectorAll(".clip").forEach((clip) => {
+    gsap.from(clip, {
+      opacity: 0, // 초기 투명도
+      y: 0, // 아래에서 시작
+      duration: 1.5, // 애니메이션 지속 시간
+      ease: "power2.out", // 부드러운 애니메이션
+      scrollTrigger: {
+        trigger: clip, // 트리거 대상
+        start: "top 70%", // 화면의 80% 지점에서 시작
+        end: "top 50%", // 화면의 50% 지점에서 종료
+        toggleActions: "play none none none", // 한 번만 실행
+
+        // markers: true,
+      },
+    });
+  });
+
   /* 탭메뉴 활성 */
   const $tabMenu = $(".tab-menu > a");
   const $tabContent = $(".tab-con > div");
@@ -84,26 +102,45 @@ $(function () {
   gsap.registerPlugin(ScrollTrigger);
 
   ScrollTrigger.create({
-    trigger: "movie-famousline",
-    start: "top top",
-    end: "10%",
-    scrub: true,
-    onUpdate: (self) => {
-      const progress = self.progress;
-      document.querySelector(
-        ".movie-famousline"
-      ).style.background = `rgba(0,0,0 ${progress})`;
+    scrollTrigger: {
+      trigger: "movie-famousline",
+      start: "top 0%",
+      end: "bottom bottom",
+
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        document.querySelector(
+          ".movie-famousline"
+        ).style.background = `rgba(0,0,0 ${progress})`;
+      },
     },
   });
+
+  /*   ScrollTrigger.create({
+    scrollTrigger: {
+      trigger: "movie-famousline",
+      start: "top 0%",
+      end: "bottom+=3000",
+      pin: true,
+      scrub: true,
+      onUpdate: (self) => {
+        const progress = self.progress;
+        document.querySelector(
+          ".movie-famousline"
+        ).style.background = `rgba(0,0,0 ${progress})`;
+      },
+    },
+  }); */
 
   //   배경색상전환
   ScrollTrigger.create({
     trigger: ".movie-famousline",
-    start: "10%",
-    end: "bottom bottom",
+    start: "top -25%",
+    end: "bottom+=2500 0%",
+    pin: true,
     markers: true,
-    scrub: true,
-
+    scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;
       const startColor = { r: 0, g: 0, b: 0 };
@@ -120,33 +157,76 @@ $(function () {
       ).style.background = `rgb(${currentColor.r}, ${currentColor.g},${currentColor.b})`;
     },
   });
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".movie-famousline", // 트리거 요소
+      start: "top -25%", // 시작 지점
+      end: "bottom+=1500 0%", // 종료 지점
+      scrub: 1, // 스크롤과 동기화
+    },
+  });
 
-  const lines = document.querySelectorAll(".quote-line");
+  // 타임라인에 텍스트 애니메이션 추가
+  tl.to("#line1", {
+    opacity: 1,
+    y: 0, // 부드럽게 위치 조정
+    duration: 4,
+    ease: "power2.out", // 잔잔한 자연스러운 움직임
+  })
+    .to("#line2", {
+      opacity: 1,
+      y: 0,
+      duration: 4,
+      ease: "power2.out",
+    })
+    .to("#line3", {
+      opacity: 1,
+      y: 0,
+      duration: 4,
+      ease: "power2.out",
+    })
+    .to("#line4", {
+      opacity: 1,
+      y: 0,
+      duration: 4,
+      ease: "power2.out",
+    });
+  /*   const lines = document.querySelectorAll(".quote-line");
   lines.forEach((line, index) => {
     gsap.fromTo(
       line,
-      { opacity: 0, y: 50 },
+      { opacity: 0, y: 150 },
       {
         opacity: 1,
-        y: 0,
-        duration: 1,
+        y: -50,
+        duration: 2,
         scrollTrigger: {
-          trigger: ".quote-con",
-          start: "top 80%",
+          trigger: ".movie-famousline",
+          start: "top top",
           end: "top 20%",
           scrub: true,
         },
       }
     );
-  });
-
-  /*   const teardrop = document.querySelector(".tear");
-  gsap.to(teardrop, {
-    y: 800,
-    duration: 2,
-    repeat: -1,
-    ease: "power1.in",
   }); */
+
+  // 리뷰 섹션 효과
+  document.querySelectorAll(".re-comment").forEach((comment, index) => {
+    gsap.to(comment, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      rotation: 0,
+      duration: 2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: comment,
+        start: "top 80%",
+        toggleActions: "play none none none",
+        markers: true,
+      },
+    });
+  });
 
   // 영상
   const $body = $("body");
@@ -192,5 +272,24 @@ $(function () {
     setTimeout(function () {
       $video.attr("src", "");
     }, 300);
+  });
+
+  //네비게이션 메뉴 탭 온오프
+  const $heaTab = $(".hea-tab");
+  const $navTab = $(".nav-tab");
+  const $navMenu = $(".nav-menu");
+
+  $navMenu.hide();
+
+  $heaTab.on("click", function () {
+    $navMenu.fadeIn();
+    $heaTab.fadeOut();
+
+    $navTab.addClass("active");
+  });
+
+  $navTab.on("click", function () {
+    $navMenu.fadeOut();
+    $heaTab.fadeIn();
   });
 });
