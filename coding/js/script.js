@@ -256,6 +256,8 @@ $(function () {
     // hea-tab 안보이게
     $headerTab.fadeOut();
 
+    $navTab.fadeOut();
+
     // 선택한 놈의 인덱스를 구해서 변수에 저장 : videoIdx
     const videoIdx = $(this).index();
     console.log(videoIdx);
@@ -267,6 +269,8 @@ $(function () {
     $videoWrap.removeClass("active");
 
     $headerTab.fadeIn(300);
+
+    $navTab.fadeIn(300);
 
     //$video의 src값을 없애자 --> 동영상 삭제
     setTimeout(function () {

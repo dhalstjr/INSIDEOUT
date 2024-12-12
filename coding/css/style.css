@@ -340,7 +340,7 @@
   margin-top: 3.4rem;
   font-weight: 400;
   font-size: 2rem;
-  font-family: "Inter";
+  font-family: "Pretendard";
 }
 
 .character .tab-wrap {
@@ -408,19 +408,46 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 60px;
-  height: 60px;
-  background: #000;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background: #1a0b50 no-repeat 0 0 / cover;
   color: #fff;
   text-transform: uppercase;
   z-index: 10;
 }
 
-.cha-slider-wrap .btn.btn-prev {
-  left: -80px;
+.cha-slider-wrap .btn-prev {
+  left: -70px;
 }
-.cha-slider-wrap .btn.btn-next {
-  right: -80px;
+
+.cha-slider-wrap .btn-prev::before {
+  content: "";
+  position: relative;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+
+  background-image: url(../img/btn-prev.png);
+}
+.cha-slider-wrap .btn-next {
+  right: -70px;
+}
+
+.cha-slider-wrap .btn-next::before {
+  content: "";
+  position: relative;
+  top: 28%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 3.2rem;
+  height: 3.2rem;
+
+  background-image: url(../img/btn-next.png);
 }
 
 .cha-list li {
@@ -446,7 +473,6 @@
 .cha-list dl {
   padding: 40px;
   /*   background: #f55; */
-  font-family: "Pretendard";
 }
 
 .cha-list dl dt {
@@ -454,16 +480,41 @@
   font-size: 28px;
   color: #000;
   text-align: center;
+  letter-spacing: 0.04em;
+  font-family: "Pretendard";
 }
 
 .cha-list dl dd {
   font-family: "Poppins";
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 600;
+  font-size: 20px;
   color: #000;
   text-align: center;
 
-  margin-top: 16px;
+  margin-top: 12px;
+
+  letter-spacing: 0.01em;
+}
+
+.cha-info.joy {
+  background: linear-gradient(to bottom, #ffd700, #fffacd 95%);
+  color: #333;
+}
+.cha-info.sad {
+  background: linear-gradient(to bottom, #1c56d2, #abc6ff 100%);
+  color: #eee;
+}
+.cha-info.anger {
+  background: linear-gradient(to bottom, #a21207, #f2a099 100%);
+  color: #eee;
+}
+.cha-info.disgust {
+  background: linear-gradient(to bottom, #3a9728 30%, #b1f6a4 95%);
+  color: #eee;
+}
+.cha-info.fear {
+  background: linear-gradient(to bottom, #612f90, #ca9bf6 95%);
+  color: #eee;
 }
 
 .cha-info {
@@ -499,22 +550,37 @@
 .cha-info h3 {
   font-family: "Pretendard";
   font-weight: 600;
-  font-size: 2.8rem;
+  font-size: 3rem;
+  letter-spacing: 0.04em;
 }
 .cha-info strong {
   font-family: "Poppins";
-  font-weight: 500;
-  font-size: 2rem;
-  margin-top: 0.8rem;
+  font-weight: 600;
+  font-size: 2.6rem;
+  margin-top: 1rem;
+}
+
+.cha-info p:first-of-type {
+  margin-top: 2rem;
 }
 .cha-info p {
   font-family: "Pretendard";
   font-weight: 400;
-  font-size: 1.8rem;
-  margin-top: 1.4rem;
+  font-size: 2rem;
+  margin-top: 0.6rem;
   width: 40rem;
   text-align: center;
   word-break: keep-all;
+  letter-spacing: 0.01em;
+}
+
+.swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #1a0b50;
 }
 
 /* 명대사 섹션 */
