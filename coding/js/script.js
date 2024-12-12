@@ -139,7 +139,7 @@ $(function () {
     start: "top -25%",
     end: "bottom+=2500 0%",
     pin: true,
-    markers: true,
+    /*    markers: true, */
     scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;
@@ -223,7 +223,7 @@ $(function () {
         trigger: comment,
         start: "top 80%",
         toggleActions: "play none none none",
-        markers: true,
+        /*     markers: true, */
       },
     });
   });
